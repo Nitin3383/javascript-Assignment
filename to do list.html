@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        .h {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #61A3BA;
+            margin: 10% 0 0 30%;
+
+        }
+
+        #box {
+            margin: 10% 0 0 20%;
+            border: 2px solid black;
+            width: 50%;
+            color: rgb(119, 10, 10);
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #A2C579;
+            box-shadow: 2px 3px 2px greenyellow;
+            list-style: none;
+        }
+
+        #error {
+            color: red;
+        }
+
+        .input {
+            margin: 5% 0 5% 2%;
+            width: 70%;
+            height: 30px;
+            border: 2px solid #A2C579;
+            border-radius: 25px 25px;
+            text-align: center;
+            color: black;
+
+        }
+
+
+        .btn {
+            background-color: #D2DE32;
+            border: none;
+            width: 10%;
+            height: 35px;
+            border-radius: 30px 30px;
+            color: black;
+
+
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            margin-left: 90%;
+            margin-bottom: 2%;
+            border: none;
+            border-radius: 12px 12px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <ul id="box">
+            <h1 class="h">TO DO LIST</h1>
+
+            <input type="text" id="name" class="input" placeholder="ADD Items">
+            <input type="button" value="Add" id="btnClick" class="btn" onclick="add()">
+
+            <span id="error"></span>
+
+
+        </ul>
+
+
+    </div>
+    <script>
+        function add() {
+            let name = document.getElementById('name').value;
+            if (name == "") {
+                document.getElementById("error").innerHTML = "* Value"
+            } else {
+                let box = document.getElementById('box');
+                let li = document.createElement('li');
+                li.textContent = name;
+                let img = document.createElement('img');
+
+
+
+
+
+
+
+                let del = document.createElement("button")
+                del.innerHTML = "Delete"
+
+
+
+                li.appendChild(del);
+                box.appendChild(li);
+            }
+
+
+
+
+            document.getElementById('name').value = ""
+        }
+
+        let btn = document.querySelector('ul')
+        btn.addEventListener('click', function (e) {
+            let box = document.getElementById('box');
+            let li = e.target.parentNode;
+            box.removeChild(li);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
